@@ -1,14 +1,22 @@
 //Ok I imagine the code is gonna go something like this:
 
 /* ask for word */
-let inputVerb = prompt("Enter an infinitive:", ""); //replace this with a DOM thingy down the line please.
+// let inputVerb = prompt("Enter an infinitive:", undefined); //replace this with a DOM thingy down the line please.
+
+function getInputVerb() {
+  let inputVerb = prompt("Enter an infinitive:", "");
+  return inputVerb;
+}
+let inputVerb = getInputVerb();
 console.log(inputVerb);
-/*detect word type by chopping off final two letters of verb (make sure it is an infiinitive)*/
+
+/*detect word type by chopping off final two letters of verb (make sure it is an infiinitive). MAKE A FUNCTION PLEASE*/
 let verbType = inputVerb.slice(-2);
 if (!(verbType == "er" || verbType == "ar" || verbType == "ir")) {
   //check for actual infinitive. I can already see the utility of function-ing all of ths to re-run easy.
   verbType = "notInfinitive";
 }
+
 console.log(verbType);
 verbType === "notInfinitive"
   ? (inputVerb = prompt(
