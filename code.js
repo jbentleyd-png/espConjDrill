@@ -4,26 +4,32 @@
 // let inputVerb = prompt("Enter an infinitive:", undefined); //replace this with a DOM thingy down the line please.
 
 function getInputVerb() {
-  let inputVerb = prompt("Enter an infinitive:", "");
+  let inputVerb = prompt(
+    "Enter an infinitive:(MUST end in 'er', 'ir', or 'ar'):",
+    "",
+  );
   return inputVerb;
 }
+
 let inputVerb = getInputVerb();
 console.log(inputVerb);
 
 /*detect word type by chopping off final two letters of verb (make sure it is an infiinitive). MAKE A FUNCTION PLEASE*/
-let verbType = inputVerb.slice(-2);
-if (!(verbType == "er" || verbType == "ar" || verbType == "ir")) {
-  //check for actual infinitive. I can already see the utility of function-ing all of ths to re-run easy.
-  verbType = "notInfinitive";
+function getVerbType(inputVerb) {
+  let verbType = inputVerb.slice(-2);
+  if (!(verbType == "er" || verbType == "ar" || verbType == "ir")) {
+    //check for actual infinitive. I can already see the utility of function-ing all of ths to re-run easy.
+    verbType = "notInfinitive";
+  }
+  return verbType; //this has to be OUTSIDE the if block to ensure it doesn't get scoped out.
 }
 
-console.log(verbType);
-verbType === "notInfinitive"
-  ? (inputVerb = prompt(
-      "Enter an infinitive(MUST end in 'er', 'ir', or 'ar'):",
-      "",
-    ))
-  : undefined;
+/* Ensure input is an infinitive:*/
+while (getVerbType(inputVerb) == "notInfinitive") {
+  inputVerb = getInputVerb();
+}
+
+console.log(getVerbType(inputVerb));
 
 /*check for irregular verb (best to keep chopped version of verb as a separate var from the const, which will be the infinitive)*/
 if (verbType == "er") {
