@@ -7,7 +7,7 @@ function getInputVerb() {
     "Enter an infinitive:(MUST end in 'er', 'ir', or 'ar'):",
     "",
   );
-  return result;
+  return result; //note, haivng a distinct name ('result' rather than 'inputVerb' in the local scope made a difference this time. Not always, but probably good practice.)
 }
 
 let inputVerb = getInputVerb();
@@ -31,13 +31,17 @@ console.log(getVerbType(inputVerb));
 console.log(inputVerb);
 
 /*check for irregular verb (best to keep chopped version of verb as a separate var from the const, which will be the infinitive)*/
-if (verbType == "er") {
-  if (infinitive == "atender" || infinitive == "hacer") {
-    //would be better to have an array of irregular verbs to check through, I think. Cann be on a separate .js?
-    verbType = "irr"; //DON'T use "let" here.
+function checkIrregular() {
+  let irregularStatus = false; //we need to declare it out here so that it exists outside just the scope of the if statement.
+  //added the false here to save a couple lines.
+  if (getVerbType(inputVerb) == "er") {
+    if (inputVerb == "atender" || inputVerb == "hacer") {
+      irregularStatus = true;
+    }
+    return irregularStatus;
   }
 }
-console.log(verbType);
+console.log(checkIrregular());
 /*generate correct answers once verb type has been determined*/
 
 /*generate fields for inputting answers*/
