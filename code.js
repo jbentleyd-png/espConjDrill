@@ -44,6 +44,17 @@ function standardizeInfinitive(word) {
 const infinitive = standardizeInfinitive(inputVerb);
 console.log(infinitive);
 
+function getArAnswers(arVerb) {
+  const stem = arVerb.slice(0, -2);
+  const endings = ["o", "as", "a", "amos", "ais", "an"]; //update for accents, add character input to DOM later
+  let answers = [];
+  for (e of endings) {
+    answers[e] = stem + e;
+  }
+  return answers;
+}
+console.log(getArAnswers("Hablar"));
+
 /*generate correct answers once verb type has been determined*/
 /* perhaps best as object properties?*/
 
