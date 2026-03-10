@@ -55,6 +55,26 @@ function getArAnswers(arVerb) {
 }
 console.log(getArAnswers("Hablar"));
 
+function getIrAnswers(irVerb) {
+  const stem = irVerb.slice(0, -2);
+  const endings = ["o", "es", "e", "imos", "ais", "en"]; //update for accents, add character input to DOM later
+  let answers = [];
+  for (e of endings) {
+    answers[e] = stem + e;
+  }
+  return answers;
+}
+
+function getIrAnswers(erVerb) {
+  const stem = erVerb.slice(0, -2);
+  const endings = ["o", "es", "e", "emos", "ais", "en"]; //update for accents, add character input to DOM later
+  let answers = [];
+  for (e of endings) {
+    answers[e] = stem + e;
+  }
+  return answers;
+}
+
 /*generate correct answers once verb type has been determined*/
 /* perhaps best as object properties?*/
 
