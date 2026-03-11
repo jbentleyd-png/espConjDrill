@@ -45,10 +45,12 @@ const infinitive = standardizeInfinitive(inputVerb);
 console.log(infinitive);
 
 function getArAnswers(arVerb) {
+  // OK LET's convert it to an object rather than array for next time.
   const stem = arVerb.slice(0, -2);
   const endings = ["o", "as", "a", "amos", "ais", "an"]; //update for accents, add character input to DOM later
   let answers = [];
-  for (e of endings) {
+  for (let e of endings) {
+    //e needs to be declared here for scope.
     answers[e] = stem + e;
   }
   return answers;
