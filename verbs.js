@@ -9,3 +9,18 @@ const pronouns = [
 ];
 
 // store arrays of irregular verbs here
+
+const presentIrr = [];
+
+const bootForm = [];
+
+const pastIrr = [];
+
+const imperfectIrr = [];
+
+const futureConditonalIrr = [];
+
+const subjunctiveIrr = [];
+
+const preteriteIrr = [];
+//probably arrays of..object? for each verb?
