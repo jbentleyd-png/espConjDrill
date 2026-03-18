@@ -81,4 +81,13 @@ function getIrAnswers(erVerb) {
 /* perhaps best as object properties?*/
 
 /*generate fields for inputting answers*/
+//wrap in function later on:
+const answerSection = document.querySelector("#answerSection");
+const answerField = document.createElement("input");
+answerField.type = "text";
+const submitAnswers = document.createElement("button");
+submitAnswers.textContent = "CLICK";
+answerSection.appendChild(answerField);
+answerSection.appendChild(submitAnswers); //currently, the whole section only works if the initial alert script is not cancelled, I wonder what is going on with that.
+
 /*check answer function onclick*/
