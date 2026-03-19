@@ -6,6 +6,10 @@ function getInputVerb() {
   return result;
 }
 
+// const firstInput = document.querySelector("#firstInput").textContent; //idk if that's real
+const go = document.querySelector("#go");
+go.addEventListener("click", getInputVerb);
+
 let inputVerb = getInputVerb();
 console.log(inputVerb);
 
